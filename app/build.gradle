@@ -1,0 +1,76 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.1.0'
+        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+    lintOptions {
+        abortOnError false
+    }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
+    configurations {
+        androidTestCompile.exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        applicationId 'com.bonganimbigi.dribbbble'
+        minSdkVersion 10
+        targetSdkVersion 22
+        versionCode 5
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:palette-v7:22.2.0'
+    compile 'com.android.support:design:22.2.0'
+    compile 'com.android.support:recyclerview-v7:22.2.0'
+    compile 'com.android.support:cardview-v7:21.0.3'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.jakewharton:butterknife:6.1.0'
+    compile 'com.google.dagger:dagger:2.0'
+    compile 'io.reactivex:rxandroid:0.24.0'
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'it.sephiroth.android.library.imagezoom:imagezoom:2.1.1'
+    compile 'com.malinskiy:superrecyclerview:1.1.0'
+    apt 'com.google.dagger:dagger-compiler:2.0'
+    compile 'de.hdodenhof:circleimageview:1.3.0'
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.1') {
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
+    androidTestCompile 'com.android.support.test:rules:0.2'
+}

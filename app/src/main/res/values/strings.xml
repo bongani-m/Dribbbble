@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Dribbbble</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="loading">Loading</string>
+    <string name="loading_shots">Loading Shots…</string>
+    <string name="dribble">Dribble</string>
+    <string name="dribble_image">dribble_image</string>
+    <string name="tittle_test">End of a era</string>
+    <string name="image_views">image_views</string>
+    <string name="text_views_count_test">4600</string>
+    <string name="refresh">Refresh</string>
+    <string name="lorem">This is suppose to be a lorem ipsum but I hate those this so I typed this instead.</string>
+    <string name="no_comments">No Comments. =(</string>
+    <string name="no_internet">Check your internet connection because we can connect to dribbble.</string>
+    <string name="popular">Popular</string>
+    <string name="debuts">Debut</string>
+    <string name="recent">Recent</string>
+</resources>
